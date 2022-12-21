@@ -1,0 +1,43 @@
+/*Todo el componente tiene de fondo gris bueno para la vista y todos los elemntos están al centro de la pantalla separados*/
+body{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+h1{
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px;
+}
+h2{
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px;
+}
+h3{
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px;
+}
+h4{
+    font-size: 1em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px;
+}
+h5{
+    font-size: 0.8em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px;
+}
+h6{
+    font-size: 0.6em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 30px;
+}
