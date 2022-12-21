@@ -15,13 +15,14 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor(private router: Router, private dialogRef: 
+  constructor(private router: Router, private dialogRef:
     MatDialogRef<LoginComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   submit() {
     //loguearse con los datos de usuario Henry7001 y contraseña 06051950
     if (this.session.value.username == 'Henry7001' && this.session.value.password == '06051950') {
       this.dialogRef.close();
+      this.router.navigate(['/crud']);
     }else{
       alert('Usuario o contraseña incorrectos');
     }
