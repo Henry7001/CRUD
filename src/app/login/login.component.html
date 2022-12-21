@@ -1,0 +1,22 @@
+<h2>Iniciar sesión</h2>
+<mat-dialog-content>
+  <div></div>
+  <form [formGroup]="session" (ngSubmit)="submit()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de usuario</mat-label>
+      <input title="usermane" matInput formControlName="username">
+      <mat-hint *ngIf="session.controls['username'].invalid">Usuario requerido.</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input title="password" type="password" matInput formControlName="password">
+      <mat-hint *ngIf="session.controls['password'].invalid">Contraseña requerida.</mat-hint>
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+      <button mat-raised-button [disabled]="session.invalid" [mat-dialog-close]="session.get('username')?.value">Conectar</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

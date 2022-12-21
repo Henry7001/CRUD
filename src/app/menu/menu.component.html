@@ -1,0 +1,9 @@
+<header>
+  <mat-toolbar color="primary">
+    <h1>CRUD</h1>
+    <span class="spacer"></span>
+    <h1>{{username}}</h1>
+    <button *ngIf="username" mat-flat-button color="warn" (click)="openDialogLogout()" class="btn">Cerrar sesión</button>
+    <button *ngIf="!username" mat-flat-button color="accent" (click)="openDialogSignIn()" class="btn">Iniciar sesión</button>
+  </mat-toolbar>
+</header>
