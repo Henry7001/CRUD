@@ -9,11 +9,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   session = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
+  //variable Error
+  
 
   constructor(private router: Router, private dialogRef:
     MatDialogRef<LoginComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
