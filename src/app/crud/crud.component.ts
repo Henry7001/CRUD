@@ -27,32 +27,39 @@ export class CrudComponent implements OnInit {
   }
 
   data = [{
-        cedula: '0151245245',      
-        nombres: 'Andrés Luis',
-        apellidos: 'Carvajal Lozano',
-        direccion: 'Quito, Ecuador',
-        edad: 50
+        cedula: '0999999991',      
+        nombres: 'Wilson Rodrigo',
+        apellidos: 'Gilces Tutiven',
+        direccion: 'Guayaquil, Ecuador',
+        edad: 21
       },
       {
-        cedula: '0929992823',      
+        cedula: '0999999992',      
         nombres: 'Henry Miguel',
         apellidos: 'Ruiz Reyes',
         direccion: 'Daule, Ecuador',
         edad: 21
       },
       {
-        cedula: '0954658913',      
-        nombres: 'Jorge Luis',
-        apellidos: 'Charco Aguirre',
+        cedula: '0999999993',      
+        nombres: 'Ricardo Omar',
+        apellidos: 'Solorzano Zambrano',
         direccion: 'Guayaquil, Ecuador',
-        edad: 36
+        edad: 21
       },
       {
-        cedula: '0957962158',      
-        nombres: 'Andrea Lisbeth',
-        apellidos: 'Romero Haro',
+        cedula: '0999999994',      
+        nombres: 'Fausto Javier',
+        apellidos: 'Torres Aspiazu',
+        direccion: 'Caluma, Ecuador',
+        edad: 21
+      },
+      {
+        cedula: '0999999995',      
+        nombres: 'Guillermo David',
+        apellidos: 'Zevallos Escalante',
         direccion: 'Guayaquil, Ecuador',
-        edad: 45
+        edad: 21
       }
     ];
 
@@ -82,7 +89,7 @@ export class CrudComponent implements OnInit {
   openDialogModificar(element:any){
     this.dialog.open(ModificarComponent, {
       width: '50%'
-    })
+    });
   }
 
 }
