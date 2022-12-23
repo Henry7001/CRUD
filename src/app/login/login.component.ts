@@ -24,8 +24,10 @@ export class LoginComponent {
   submit() {
     if (this.session.value.username=="Henry" && this.session.value.password=="123")
     {      
-      this.router.navigate(['/crud']);      
-      this.dialogRef.close(); 
+      this.router.navigate(['/crud']);
+      this.data.username = this.session.value.username;
+      this.dialogRef.close(this.data.username); 
+      this.alert = false;
     }
     else
     {

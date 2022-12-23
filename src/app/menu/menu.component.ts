@@ -10,6 +10,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class MenuComponent {
   username: string = ''; password: string = '';
+  isLoggedIn: boolean = false;
   constructor(
     private router: Router,public dialog: MatDialog) {}
   openDialogSignIn(){
@@ -17,19 +18,22 @@ export class MenuComponent {
       LoginComponent, {
       data: { username: this.username},
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      if(this.username=="Henry" && this.password=="123"){
+      this.username = result;
+      if (this.username != undefined) {
         this.router.navigate(['/crud']);
-        this.username = result;
+        this.isLoggedIn = true;
       }else{
         this.username = '';
-        return;  
+        this.isLoggedIn = false;
       }
-    });
+    }
+    );
   }
 
   openDialogLogout(){
     this.username= '';
+    this.isLoggedIn = false;
+    this.router.navigate(['/']);
   }
 }

@@ -1,7 +1,11 @@
 <br>
 <button mat-raised-button color="accent" (click)="openDialogAgregar()"> Agregar</button>
 <br><br>
-
+<mat-form-field>
+    <input matInput [formControl]="searchTerm" placeholder="Buscar por nombre">
+</mat-form-field>
+<button mat-button (click)="search()">Buscar</button>
+<br><br>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="cedula">
         <th mat-header-cell *matHeaderCellDef> Cédula </th>

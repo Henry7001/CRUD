@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router} from '@angular/router';
 import { AgregarClienteComponent } from '../agregar-cliente/agregar-cliente.component';
 import { ModificarComponent } from '../modificar/modificar.component';
@@ -19,7 +19,13 @@ export class CrudComponent implements OnInit {
 
   dataSource: any = [];
   displayedColumns: string[] = ['cedula', 'nombres', 'apellidos', 'direccion', 'edad', 'acciones'];
-  
+  nuevoCliente:any;
+  nav: any;
+  searchTerm = new FormControl('');
+  search() {
+    this.dataSource.filter = this.searchTerm.value?.trim().toLowerCase();
+  }
+
   data = [{
         cedula: '0151245245',      
         nombres: 'Andrés Luis',
@@ -32,7 +38,7 @@ export class CrudComponent implements OnInit {
         nombres: 'Henry Miguel',
         apellidos: 'Ruiz Reyes',
         direccion: 'Daule, Ecuador',
-        edad: 50
+        edad: 21
       },
       {
         cedula: '0954658913',      
@@ -49,9 +55,6 @@ export class CrudComponent implements OnInit {
         edad: 45
       }
     ];
-  
-  nuevoCliente:any;
-  nav: any;
 
   constructor(private router: Router, private dialog:MatDialog) { 
     
@@ -67,8 +70,7 @@ export class CrudComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<ClienteInterface>(this.data as ClienteInterface[]);
-    console.log(this.data);
+    this.dataSource = new MatTableDataSource(this.data);
   }
 
   openDialogAgregar(){
@@ -77,7 +79,6 @@ export class CrudComponent implements OnInit {
     })
   }
 
-  //openDialogModificar() con ingreso de cliente
   openDialogModificar(element:any){
     this.dialog.open(ModificarComponent, {
       width: '50%'

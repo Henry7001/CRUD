@@ -47,6 +47,7 @@ import { CrudComponent } from './crud/crud.component';
 import { LandingComponent } from './landing/landing.component';
 import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.component';
 import { ModificarComponent } from './modificar/modificar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ModificarComponent } from './modificar/modificar.component';
     CrudComponent,
     LandingComponent,
     AgregarClienteComponent,
-    ModificarComponent
+    ModificarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

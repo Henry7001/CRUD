@@ -15,7 +15,7 @@
           <mat-hint *ngIf="session.controls['password'].invalid">Contraseña requerida.</mat-hint>
         </mat-form-field>
         <mat-dialog-actions align="end">
-          <button type="submit" mat-raised-button [disabled] = "!session.valid" [mat-dialog-close]="session.get('username')?.value">Conectar</button>
+          <button type="button" mat-raised-button [disabled] = "!session.valid" [mat-dialog-close]="session.get('username')?.value">Conectar</button>
         </mat-dialog-actions>
     </form>
 </mat-dialog-content>
