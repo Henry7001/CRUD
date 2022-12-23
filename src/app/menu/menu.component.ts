@@ -9,22 +9,27 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  username: string = '';
+  username: string = ''; password: string = '';
   constructor(
     private router: Router,public dialog: MatDialog) {}
   openDialogSignIn(){
-    const dialogRef = this.dialog.open(LoginComponent, {
-      data: { username: this.username },
+    const dialogRef = this.dialog.open(
+      LoginComponent, {
+      data: { username: this.username},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.router.navigate(['/crud']);
-      this.username = result;
+      if(this.username=="Henry" && this.password=="123"){
+        this.router.navigate(['/crud']);
+        this.username = result;
+      }else{
+        this.username = '';
+        return;  
+      }
     });
   }
 
   openDialogLogout(){
-    this.router.navigate(['/']);
     this.username= '';
   }
 }

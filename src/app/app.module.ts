@@ -45,6 +45,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { CrudComponent } from './crud/crud.component';
 import { LandingComponent } from './landing/landing.component';
+import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.component';
+import { ModificarComponent } from './modificar/modificar.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { LandingComponent } from './landing/landing.component';
     MenuComponent,
     LoginComponent,
     CrudComponent,
-    LandingComponent
+    LandingComponent,
+    AgregarClienteComponent,
+    ModificarComponent
   ],
   imports: [
     BrowserModule,

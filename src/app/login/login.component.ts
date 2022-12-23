@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 import { Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -15,19 +16,21 @@ export class LoginComponent {
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
-  //variable Error
   
 
   constructor(private router: Router, private dialogRef:
     MatDialogRef<LoginComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
-
+  alert: boolean = false;
   submit() {
-    //loguearse con los datos de usuario Henry7001 y contraseña 06051950
-    if (this.session.value.username == 'Henry7001' && this.session.value.password == '06051950') {
-      this.dialogRef.close();
-      this.router.navigate(['/crud']);
-    }else{
-      alert('Usuario o contraseña incorrectos');
+    if (this.session.value.username=="Henry" && this.session.value.password=="123")
+    {      
+      this.router.navigate(['/crud']);      
+      this.dialogRef.close(); 
+    }
+    else
+    {
+      this.alert = true;      
+      setTimeout(() => this.alert=false, 10000);
     }
   }
 }
