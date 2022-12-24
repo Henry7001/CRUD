@@ -56,7 +56,7 @@ export class ModificarComponent implements OnInit {
     }
   
     // Actualizar el elemento en la tabla
-    this.dataSource.update(cliente, cliente);
+    //this.dataSource.update(cliente, cliente);
 
     // Cerrar el diálogo
     this.dialogRef.close(); 
