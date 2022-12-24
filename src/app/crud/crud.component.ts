@@ -27,35 +27,35 @@ export class CrudComponent implements OnInit {
   }
 
   data = [{
-        cedula: '0999999991',      
+        cedula: '0999999991',
         nombres: 'Wilson Rodrigo',
         apellidos: 'Gilces Tutiven',
         direccion: 'Guayaquil, Ecuador',
         edad: 21
       },
       {
-        cedula: '0999999992',      
+        cedula: '0999999992',
         nombres: 'Henry Miguel',
         apellidos: 'Ruiz Reyes',
         direccion: 'Daule, Ecuador',
         edad: 21
       },
       {
-        cedula: '0999999993',      
+        cedula: '0999999993',
         nombres: 'Ricardo Omar',
         apellidos: 'Solorzano Zambrano',
         direccion: 'Guayaquil, Ecuador',
         edad: 21
       },
       {
-        cedula: '0999999994',      
+        cedula: '0999999994',
         nombres: 'Fausto Javier',
         apellidos: 'Torres Aspiazu',
         direccion: 'Caluma, Ecuador',
         edad: 21
       },
       {
-        cedula: '0999999995',      
+        cedula: '0999999995',
         nombres: 'Guillermo David',
         apellidos: 'Zevallos Escalante',
         direccion: 'Guayaquil, Ecuador',
@@ -63,17 +63,17 @@ export class CrudComponent implements OnInit {
       }
     ];
 
-  constructor(private router: Router, private dialog:MatDialog) { 
-    
+  constructor(private router: Router, private dialog:MatDialog) {
+
     this.nav = this.router.getCurrentNavigation();
     this.nuevoCliente = this.nav.extras.state;
-  
+
     if (this.nuevoCliente != null)
-    {      
+    {
       console.log(this.nuevoCliente.datosCliente.queryParams);
       this.data.push(this.nuevoCliente.datosCliente.queryParams);
     }
-    
+
   };
 
   ngOnInit(): void {
@@ -88,7 +88,8 @@ export class CrudComponent implements OnInit {
 
   openDialogModificar(element:any){
     this.dialog.open(ModificarComponent, {
-      width: '50%'
+      width: '50%',
+      data: { element },
     });
   }
 
