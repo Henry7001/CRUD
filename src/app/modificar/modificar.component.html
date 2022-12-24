@@ -6,6 +6,7 @@
             </div>  
             <ng-container>
                 <form [formGroup]="form">
+                    <input type="hidden" formControlName="id">
                     <mat-form-field class="campos-field">
                         <input matInput placeholder="Cedula" formControlName="cedula">
                     </mat-form-field>
@@ -22,7 +23,7 @@
                         <input matInput placeholder="Edad" formControlName="edad">
                     </mat-form-field>
                     <!--Botón para realizar los cambios con la función submit de modificar.component.ts-->
-                    <button type="submit" mat-raised-button color="accent" (click)="submit(form.value.cedula, form.value.nombres, form.value.apellidos, form.value.direccion, form.value.edad)">Modificar</button>
+                    <button type="submit" mat-raised-button color="accent" (click)="submit(form.value.id, form.value.cedula, form.value.nombres, form.value.apellidos, form.value.direccion, form.value.edad)">Modificar</button>
                     <button type="button" mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
                 </form>
             </ng-container>

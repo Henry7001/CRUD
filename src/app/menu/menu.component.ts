@@ -19,12 +19,11 @@ export class MenuComponent {
       data: { username: this.username},
     });
     dialogRef.afterClosed().subscribe(result => {
+      
       this.username = result;
-      if (this.username != undefined) {
-        this.router.navigate(['/crud']);
+      if (this.username) {
         this.isLoggedIn = true;
       }else{
-        this.username = '';
         this.isLoggedIn = false;
       }
     }
