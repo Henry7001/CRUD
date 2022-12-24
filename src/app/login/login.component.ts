@@ -25,14 +25,14 @@ export class LoginComponent {
   alert: boolean = false;
 
   submit() {
-    if (this.session.value.username === "Henry" && this.session.value.password === "123") {
+    if (this.session.value.username === "Equipo" && this.session.value.password === "equipo") {
       this.router.navigate(['/crud']);
       this.data.username = this.session.value.username;
       this.dialogRef.close(this.data.username);
     }
     else {
       this.dialogRef.close(null);
-      this._snackBar.open('Invalid username or password', 'Close');
+      this._snackBar.open('¡Acceso incorrecto! Verificar el usuario y/o la contraseña.', 'Cerrar');
     }
   }
 }
