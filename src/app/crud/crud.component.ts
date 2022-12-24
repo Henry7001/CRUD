@@ -23,7 +23,7 @@ export class CrudComponent implements OnInit {
   buscar() {
     this.dataSource.filter = this.busqueda.value?.trim().toLowerCase();
   }
-
+  newData: any = [];
   data = [{
     cedula: '0999999991',      
     nombres: 'Wilson Rodrigo',
@@ -78,12 +78,6 @@ export class CrudComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.data);
   }
 
-  openDialogAgregar(){
-    this.dialog.open(AgregarClienteComponent, {
-      width: '50%',
-    })
-  }
-
   openDialogModificar(cedula:string, nombres:string, apellidos:string, direccion:string, edad:number) {
     // Crea una copia del objeto original utilizando Object.assign()
     let objetoModificar = Object.assign({}, { cedula: cedula, nombres: nombres, apellidos: apellidos, direccion: direccion, edad: edad });
@@ -94,5 +88,18 @@ export class CrudComponent implements OnInit {
       data: objetoModificar
     });
   }
+
+  eliminar(cedula:string){
+    let indice = this.data.findIndex((cliente) => cliente.cedula == cedula);
+    this.data.splice(indice, 1);
+    this.dataSource = new MatTableDataSource(this.data);
+  }
+
+  openDialogAgregar(){
+    this.dialog.open(AgregarClienteComponent, {
+      width: '50%',
+    })
+  }
+
 
 }
