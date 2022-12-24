@@ -32,7 +32,7 @@ export class ModificarComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router
   ) { 
-    this.form.setValue({
+    this.form.patchValue({
       cedula: data.cedula,
       nombres: data.nombres,
       apellidos: data.apellidos,
@@ -45,22 +45,27 @@ export class ModificarComponent implements OnInit {
     console.log(this.data);
   }
 
-  submit(form:FormGroup){
-    // Obtener la información del formulario
-    const cliente: ClienteInterface = {
-    cedula: form.value.cedula,
-    nombres: form.value.nombres,
-    apellidos: form.value.apellidos,
-    direccion: form.value.direccion,
-    edad: form.value.edad
-    }
-  
-    // Actualizar el elemento en la tabla
-    //this.dataSource.update(cliente, cliente);
-
-    // Cerrar el diálogo
+  submit(cedula:FormControl, nombres:FormControl, apellidos:FormControl, direccion:FormControl, edad:FormControl){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "cedula": cedula,
+        "nombres": nombres,
+        "apellidos": apellidos,
+        "direccion": direccion,
+        "edad": edad
+      },
+      skipLocationChange: false,
+      fragment: 'top',
+      state: { datosCliente: this.data }
+    };
+    console.log(navigationExtras);
     this.dialogRef.close(); 
+    this.redirectTo('/crud', navigationExtras);
+  }
 
+  redirectTo(uri:string, objToSend:NavigationExtras){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([uri],{ state: { datosCliente: objToSend}}));
   }
 
   cancelar()

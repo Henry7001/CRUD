@@ -84,11 +84,15 @@ export class CrudComponent implements OnInit {
     })
   }
 
-  openDialogModificar(cedula: FormControl, nombres: FormControl, apellidos: FormControl, direccion: FormControl, edad: FormControl){
-    this.dialog.open(ModificarComponent, {
+  openDialogModificar(cedula:string, nombres:string, apellidos:string, direccion:string, edad:number) {
+    // Crea una copia del objeto original utilizando Object.assign()
+    let objetoModificar = Object.assign({}, { cedula: cedula, nombres: nombres, apellidos: apellidos, direccion: direccion, edad: edad });
+  
+    // Abre el componente ModificarComponent y envía la copia del objeto como parámetro
+    const dialogRef = this.dialog.open(ModificarComponent, {
       width: '50%',
-      data: {cedula, nombres, apellidos, direccion, edad}
-    })
+      data: objetoModificar
+    });
   }
 
 }
